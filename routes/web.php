@@ -11,14 +11,34 @@
 |
 */
 
-use App\Models\Task;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
+});*/
+
+Route::get('/', function () {
+    return view('home.index');
 });
 
-//получаем модель
+
+
+Route::resource('contacts', 'ContactsController');
+
+/*
+ * don't work
+ * Route::post('contacts', 'ContactsController@store');
+ *
+ */
+
+
+/*Route::get('user/profile', [
+    'as' => 'profile', 'uses' => 'UserController@showProfile'
+]);*/
+
+
+/*//получаем модель
 Route::get('/tasks/{id}', function($id){
    return json_encode(Task::find($id));
 });
@@ -64,4 +84,4 @@ Route::get('/tasks', function(){
 
     return json_encode($taskCollection);
 
-});
+});*/
